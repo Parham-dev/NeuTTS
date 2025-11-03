@@ -15,8 +15,9 @@ RUN apt-get update && apt-get install -y \
     g++ \
     && rm -rf /var/lib/apt/lists/*
 
-# Set espeak library path
+# Set espeak paths for phonemizer
 ENV PHONEMIZER_ESPEAK_LIBRARY=/usr/lib/x86_64-linux-gnu/libespeak-ng.so
+ENV PHONEMIZER_ESPEAK_PATH=/usr/bin/espeak-ng
 
 # Copy requirements
 COPY requirements.txt .
