@@ -11,9 +11,11 @@ from phonemizer.backend.espeak.wrapper import EspeakWrapper
 from transformers import AutoTokenizer, AutoModelForCausalLM, TextIteratorStreamer
 from threading import Thread
 
-# Configure espeak library path for macOS
-_ESPEAK_LIBRARY = '/opt/homebrew/Cellar/espeak/1.48.04_1/lib/libespeak.1.1.48.dylib'
-EspeakWrapper.set_library(_ESPEAK_LIBRARY)
+# Configure espeak library path (use environment variable set in Docker)
+import os
+_ESPEAK_LIBRARY = os.getenv('PHONEMIZER_ESPEAK_LIBRARY')
+if _ESPEAK_LIBRARY:
+    EspeakWrapper.set_library(_ESPEAK_LIBRARY)
 
 
 def _linear_overlap_add(frames: list[np.ndarray], stride: int) -> np.ndarray:
