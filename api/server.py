@@ -44,7 +44,7 @@ def initialize_model():
 
     print("Initializing NeuTTS Air model...")
     tts_model = NeuTTSAir(
-        backbone_repo="neuphonic/neutts-air-q8-gguf",
+        backbone_repo="neuphonic/neutts-air-q4-gguf",
         backbone_device="cpu",
         codec_repo="neuphonic/neucodec-onnx-decoder",
         codec_device="cpu"
