@@ -5,19 +5,14 @@ WORKDIR /app
 
 # Install system dependencies (espeak + build tools for llama-cpp-python)
 RUN apt-get update && apt-get install -y \
-    espeak-ng \
-    espeak-ng-data \
-    libespeak-ng1 \
+    espeak \
+    libespeak1 \
     libsndfile1 \
     build-essential \
     cmake \
     gcc \
     g++ \
     && rm -rf /var/lib/apt/lists/*
-
-# Set espeak paths for phonemizer
-ENV PHONEMIZER_ESPEAK_LIBRARY=/usr/lib/x86_64-linux-gnu/libespeak-ng.so
-ENV PHONEMIZER_ESPEAK_PATH=/usr/bin/espeak-ng
 
 # Copy requirements
 COPY requirements.txt .
