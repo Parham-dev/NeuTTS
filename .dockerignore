@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+
+# Environment
+.env
+.venv
+venv/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Git
+.git/
+.gitignore
+
+# Test files
+tests/output_*.wav
+test_*.wav
+api_test_*.wav
+
+# Generated audio (will be in volume mount)
+output/*.wav
+
+# Documentation
+docs/
+*.md
+!README.md
+
+# Mac
+.DS_Store
+
+# Cache
+.cache/
