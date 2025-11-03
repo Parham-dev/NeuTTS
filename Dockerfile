@@ -3,16 +3,18 @@ FROM python:3.11-slim
 # Set working directory
 WORKDIR /app
 
-# Install system dependencies (espeak + build tools for llama-cpp-python)
+# Install system dependencies (espeak-ng is the package name in Debian)
 RUN apt-get update && apt-get install -y \
-    espeak \
-    libespeak1 \
+    espeak-ng \
     libsndfile1 \
     build-essential \
     cmake \
     gcc \
     g++ \
     && rm -rf /var/lib/apt/lists/*
+
+# Verify espeak-ng is installed
+RUN which espeak-ng && espeak-ng --version
 
 # Copy requirements
 COPY requirements.txt .
